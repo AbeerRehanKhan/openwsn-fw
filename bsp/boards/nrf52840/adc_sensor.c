@@ -11,12 +11,14 @@
 #include "adc_sensor.h"
 
 
+
+
 //=========================== defines =========================================
 
 //=========================== typedef =========================================
 
 //=========================== variables =======================================
-
+int32_t temp_cpu;
 //=========================== prototype =======================================
 
 static void saadc_callback(nrf_drv_saadc_evt_t const* p_event);
@@ -73,7 +75,7 @@ float adc_sens_convert_battery(uint16_t raw) {
     return converted;
 }
 
-uint16_t adc_sens_read_temperature(void) {
+int32_t adc_sens_read_temperature(void) {
 
     int32_t cpu_temp_raw;
 
@@ -82,11 +84,12 @@ uint16_t adc_sens_read_temperature(void) {
     NRF_TEMP->EVENTS_DATARDY = 0;
     cpu_temp_raw = nrf_temp_read();
     NRF_TEMP->TASKS_STOP = 1;
+    temp_cpu = cpu_temp_raw;
 
     return cpu_temp_raw;
 }
 
-float adc_sens_convert_temperature(uint16_t cpu_temp_raw) {
+float adc_sens_convert_temperature(int32_t cpu_temp_raw) {
 
     float cpu_temp = cpu_temp_raw;
     cpu_temp /= 4;

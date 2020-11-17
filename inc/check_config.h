@@ -1,5 +1,6 @@
 #ifndef OPENWSN_CHECK_CONFIG_H
 #define OPENWSN_CHECK_CONFIG_H
+#define NRF52840
 
 #if !defined(PYTHON_BOARD) && \
     !defined(TELOSB) && \

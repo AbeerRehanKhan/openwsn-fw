@@ -91,7 +91,7 @@
  *
  */
 #ifndef OPENWSN_CSENSORS_C
-#define OPENWSN_CSENSORS_C (0)
+#define OPENWSN_CSENSORS_C (1)
 #endif
 
 /**
@@ -115,7 +115,7 @@
  *
  */
 #ifndef OPENWSN_CWELLKNOWN_C
-#define OPENWSN_CWELLKNOWN_C (0)
+#define OPENWSN_CWELLKNOWN_C (1)
 #endif
 
 /**
@@ -127,7 +127,7 @@
  *
  */
 #ifndef OPENWSN_RRT_C
-#define OPENWSN_RRT_C (0)
+#define OPENWSN_RRT_C (1)
 #endif
 
 /**
@@ -139,7 +139,7 @@
  *
  */
 #ifndef OPENWSN_UECHO_C
-#define OPENWSN_UECHO_C (0)
+#define OPENWSN_UECHO_C (1)
 #endif
 
 /**
@@ -197,7 +197,7 @@
  *
  */
 #ifndef OPENWSN_CJOIN_C
-#define OPENWSN_CJOIN_C (0)
+#define OPENWSN_CJOIN_C (1)
 #endif
 
 // ======================= OpenWeb configuration =======================
@@ -211,7 +211,7 @@
  *
  */
 #ifndef OPENWSN_COAP_C
-#define OPENWSN_COAP_C (0)
+#define OPENWSN_COAP_C (1)
 #endif
 
 
@@ -224,7 +224,7 @@
  *
  */
 #ifndef OPENWSN_UDP_C
-#define OPENWSN_UDP_C (0)
+#define OPENWSN_UDP_C (1)
 #endif
 
 /**
@@ -257,7 +257,7 @@
  * Enables the icmpv6 echo (ping) functionality
  */
 #ifndef OPENWSN_ICMPV6ECHO_C
-#define OPENWSN_ICMPV6ECHO_C (0)
+#define OPENWSN_ICMPV6ECHO_C (1)
 #endif
 
 
@@ -341,7 +341,7 @@
  *
  */
 #ifndef IEEE802154E_SINGLE_CHANNEL
-#define IEEE802154E_SINGLE_CHANNEL      0
+#define IEEE802154E_SINGLE_CHANNEL      12
 #endif
 
 /**
@@ -396,7 +396,7 @@
  *
  */
 #ifndef BOARD_OPENSERIAL_PRINTF
-#define BOARD_OPENSERIAL_PRINTF (0)
+#define BOARD_OPENSERIAL_PRINTF (1)
 #endif
 
 
@@ -407,7 +407,7 @@
  *
  */
 #ifndef BOARD_OPENSERIAL_SNIFFER
-#define BOARD_OPENSERIAL_SNIFFER (0)
+#define BOARD_OPENSERIAL_SNIFFER (1)
 #endif
 
 
@@ -418,7 +418,7 @@
  *
  */
 #ifndef BOARD_SENSORS_ENABLED
-#define BOARD_SENSORS_ENABLED (0)
+#define BOARD_SENSORS_ENABLED (1)
 #endif
 
 /**

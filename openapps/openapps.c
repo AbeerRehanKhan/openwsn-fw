@@ -62,47 +62,50 @@
 
 void openapps_init(void) {
 #if OPENWSN_CJOIN_C
-    cjoin_init();
+  cjoin_init();
 #endif
 
 #if OPENWSN_C6T_C
-    c6t_init();
+  c6t_init();
 #endif
 
 #if OPENWSN_CINFO_C
-    cinfo_init();
+  cinfo_init();
 #endif
 
 #if OPENWSN_CLED_C
-    cled_init();
+  cled_init();
 #endif
 
 #if OPENWSN_CWELLKNOWN_C
-    cwellknown_init();
+  cwellknown_init();
 #endif
 
 #if OPENWSN_RRT_C
-    rrt_init();
+  rrt_init();
 #endif
 
 #if OPENWSN_UECHO_C
-    uecho_init();
+  uecho_init();
 #endif
 
 #if OPENWSN_UINJECT_C
-    uinject_init();
+  uinject_init();
 #endif
 
 #if OPENWSN_USERIALBRIDGE_C
-    userialbridge_init();
+  userialbridge_init();
 #endif
 
 #if OPENWSN_UEXPIRATION_C
-    uexpiration_init();
+  uexpiration_init();
 #endif
 
 #if OPENWSN_UEXP_MONITOR_C
-    umonitor_init();
+  umonitor_init();
 #endif
 
+#if OPENWSN_CSENSORS_C
+  csensors_init();
+#endif
 }

@@ -13,6 +13,7 @@
 #include "idmanager.h"
 #include "scheduler.h"
 #include "openserial.h"
+#include "sockext_nrf.h"
 
 // ============================ defines ========================================
 

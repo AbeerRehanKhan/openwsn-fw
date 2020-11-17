@@ -35,7 +35,7 @@ enum {
 
 typedef uint16_t (*callbackRead_cbt)(void);
 
-typedef float (*callbackConvert_cbt)(uint16_t value);
+typedef float (*callbackConvert_cbt)(int32_t value);
 
 typedef void (*callbackReset_cbt)(void);
 
