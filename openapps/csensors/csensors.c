@@ -36,6 +36,14 @@ const uint8_t csensors_default_path1[] = "d";
 //=========================== variables =======================================
 
 csensors_vars_t csensors_vars;
+uint16_t length_packet = 0;
+uint8_t id_check_task_cb;
+uint8_t id_check_recieve;
+uint8_t id_check;
+float value_real;
+int32_t value_conv_real;
+
+
 
 //=========================== prototypes ======================================
 
@@ -218,6 +226,9 @@ owerror_t csensors_receive(
                         break;
                     }
                 }
+                //check id in livewatch
+                id_check_recieve = id;
+
                 csensors_fillpayload(msg, id);
                 // add return option
                 csensors_vars.medType = COAP_MEDTYPE_APPOCTETSTREAM;
@@ -331,6 +342,9 @@ void csensors_task_cb(void) {
     pkt->creator = COMPONENT_CSENSORS;
     pkt->owner = COMPONENT_CSENSORS;
 
+    //Check id in live watch
+    id_check_task_cb = id;
+
     // CoAP payload
     csensors_fillpayload(pkt, id);
 
@@ -437,22 +451,52 @@ void csensors_setPeriod(uint32_t period,
 void csensors_fillpayload(OpenQueueEntry_t *msg,
                           uint8_t id) {
 
-    uint16_t value;
+    float value;
+    int32_t raw_value;
+    int32_t value_converted;
 
-    value = csensors_vars.csensors_resource[id].opensensors_resource->callbackRead();
+    raw_value = csensors_vars.csensors_resource[id].opensensors_resource->callbackRead();
+    value = csensors_vars.csensors_resource[id].opensensors_resource->callbackConvert(raw_value);
+    value_converted = value * 100;
+
+    // Check value and multiplied value in watch
+     value_real = value;
+      value_conv_real = value_converted;
+
     if (packetfunctions_reserveHeader(&msg, 2) == E_FAIL){
         openqueue_freePacketBuffer(msg);
         return;
     }
+    length_packet = msg->length;
 
     // add value
-    msg->payload[0] = (value >> 8) & 0x00ff;
-    msg->payload[1] = value & 0x00ff;
+    msg->payload[0] = (value_converted/100);
+    msg->payload[1] = value_converted & 0b11111111;
+
+
+}
+//Given below is the code if one needs to send a single int value, howevere the issue of sending as an int array is not solved 
+/*
+void csensors_fillpayload(OpenQueueEntry_t *msg,
+                          uint8_t id) {
+
+    uint16_t value;
+    length_packet = msg->length;
+    value = csensors_vars.csensors_resource[id].opensensors_resource->callbackRead();
+    if (packetfunctions_reserveHeader(&msg, 1) == E_FAIL){
+        openqueue_freePacketBuffer(msg);
+        return;
+    }
+    
+
+    // add value
+    //msg->payload[0] = (value >> 8) & 0x00ff;
+    msg->payload[0] = value & 0x00ff;
 
 
 }
 
-
+*/
 /**
 \brief The stack indicates that the packet was sent.
 

@@ -18,7 +18,8 @@
 //=========================== typedef =========================================
 
 //=========================== variables =======================================
-int32_t temp_cpu;
+int32_t temp_cpu_raw;
+float temp_cpu;
 //=========================== prototype =======================================
 
 static void saadc_callback(nrf_drv_saadc_evt_t const* p_event);
@@ -84,7 +85,8 @@ int32_t adc_sens_read_temperature(void) {
     NRF_TEMP->EVENTS_DATARDY = 0;
     cpu_temp_raw = nrf_temp_read();
     NRF_TEMP->TASKS_STOP = 1;
-    temp_cpu = cpu_temp_raw;
+    //check value of temp sensor on live watch
+    temp_cpu_raw = cpu_temp_raw;
 
     return cpu_temp_raw;
 }
@@ -93,7 +95,7 @@ float adc_sens_convert_temperature(int32_t cpu_temp_raw) {
 
     float cpu_temp = cpu_temp_raw;
     cpu_temp /= 4;
-
+    temp_cpu= cpu_temp;
     return cpu_temp;
 }
 
