@@ -17,8 +17,8 @@ c = coap.coap(udpPort=UDPPORT)
 
 # read the information about the board status
 p = c.GET('coap://[{0}]/s/c'.format(MOTE_IP_0))
-print(str(p[0])+'.'+str(p[1]))
-#print ''.join([(chr(int(b))) for b in p])
+print(str(p[0])+'.'+str(p[1]))l
+print ''.join([(chr(int(b))) for b in p])
 
 # read the information about the board status
 #p = c.GET('coap://[{0}]/t'.format(MOTE_IP_1))

@@ -20,6 +20,7 @@
 #include "openserial.h"
 #include "IEEE802154E.h"
 #include "openrandom.h"
+#include "globalvalcheck.h"
 
 //=========================== defines =========================================
 
@@ -36,14 +37,6 @@ const uint8_t csensors_default_path1[] = "d";
 //=========================== variables =======================================
 
 csensors_vars_t csensors_vars;
-uint16_t length_packet = 0;
-uint8_t id_check_task_cb;
-uint8_t id_check_recieve;
-uint8_t id_check;
-float value_real;
-int32_t value_conv_real;
-char val1[10];
-char val2[50];
 
 
 
@@ -452,30 +445,68 @@ void csensors_setPeriod(uint32_t period,
 */
 void csensors_fillpayload(OpenQueueEntry_t *msg,
                           uint8_t id) {
-
     float value;
     int32_t raw_value;
-    //int32_t value_converted;
     
 
     // Get the sensor value in ADC format
     raw_value = csensors_vars.csensors_resource[id].opensensors_resource->callbackRead();
-    
+    raw_value_lw = raw_value;
+
+
     // Convert the ADC to degree celcius
     value = csensors_vars.csensors_resource[id].opensensors_resource->callbackConvert(raw_value);
-    
+    value_lw = value;
     
     //value_c1b[sizeof((uint8_t )((char)value))];
     // Converting the data type to char and then uint8_t pointer
     uint8_t val_arr[15];
-    sprintf(val_arr, "%2f2", value);
+    uint8_t help;
+    sprintf(&val_arr, "%.2f", value);
+    //val_arr_lw = val_arr;
+    sprintf(val_arr_lw, "%f", value);
 
+    //Having data in an 8 bit pointer
+//    uint8_t * value_c1b =(uint8_t *)(val_arr);
+  //  value_c1b_lw = (uint8_t *)(val_arr);
+
+    help = strlen(val_arr);
+    //Detrmining the payload length and free vufffer size according to that 
+    if (packetfunctions_reserveHeader(&msg, strlen(val_arr)) == E_FAIL){
+        openqueue_freePacketBuffer(msg);
+        return;
+    }
+    length_packet = msg->length;
+    
+    //sprintf(msg->payload, "%.2f", value);
+    memcpy(&msg->payload,&val_arr, strlen(val_arr));
+    //sprintf(pointer_payload_lw, "%f", value);
+
+/*    float value;
+    int32_t raw_value;
+    
+
+    // Get the sensor value in ADC format
+    raw_value = csensors_vars.csensors_resource[id].opensensors_resource->callbackRead();
+    raw_value_lw = raw_value;
+
+
+    // Convert the ADC to degree celcius
+    value = csensors_vars.csensors_resource[id].opensensors_resource->callbackConvert(raw_value);
+    value_lw = value;
+    
+    //value_c1b[sizeof((uint8_t )((char)value))];
+    // Converting the data type to char and then uint8_t pointer
+    uint8_t val_arr[15];
+    sprintf(val_arr, "%f", value);
+    //val_arr_lw = val_arr;
+    sprintf(val_arr_lw, "%f", value);
+
+    //Having data in an 8 bit pointer
     uint8_t * value_c1b =(uint8_t *)(val_arr);
+    value_c1b_lw = (uint8_t *)(val_arr);
 
-    // Check value and multiplied value in watch
-      value_real = value;
-      char string_value[sizeof((char)value)]; 
-
+    //Detrmining the payload length and free vufffer size according to that 
     if (packetfunctions_reserveHeader(&msg, strlen(value_c1b)) == E_FAIL){
         openqueue_freePacketBuffer(msg);
         return;
@@ -484,7 +515,9 @@ void csensors_fillpayload(OpenQueueEntry_t *msg,
     
     
     memcpy(&msg->payload[0], &value_c1b, strlen(value_c1b));
-    memcpy(&val2, &value_c1b, sizeof(value_c1b));
+    memcpy(&pointer_payload_lw, &value_c1b, strlen(value_c1b));
+*/
+
 
 /*    float value;
     int32_t raw_value;

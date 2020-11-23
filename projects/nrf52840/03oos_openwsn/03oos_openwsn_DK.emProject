@@ -158,6 +158,7 @@
             <file file_name="../../../openapps/openapps.c" />
             <folder Name="csensors">
               <file file_name="../../../openapps/csensors/csensors.c" />
+              <file file_name="globalvalcheck.h" />
             </folder>
           </folder>
         </folder>

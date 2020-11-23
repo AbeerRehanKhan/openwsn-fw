@@ -9,7 +9,7 @@
   <FrameBufferWindow bufferHeight="-1" addressSpace="" addressText="" bufferWidth="-1"/>
  </FrameBufferWindow>
  <Memory1>
-  <MemoryWindow addressSpace="" dataSize="1" autoEvaluate="0" viewMode="0" addressOrder="0" columnsText="" refreshPeriod="0" name="03oos_openwsn" radix="16" sizeText="" addressText=""/>
+  <MemoryWindow addressSpace="" dataSize="1" autoEvaluate="0" viewMode="0" addressOrder="0" columnsText="" refreshPeriod="0" name="03oos_openwsn" radix="16" sizeText="" addressText="0x40A2F9C0"/>
  </Memory1>
  <Memory2>
   <MemoryWindow addressSpace="" dataSize="1" autoEvaluate="0" viewMode="0" addressOrder="0" columnsText="" refreshPeriod="0" name="03oos_openwsn" radix="16" sizeText="" addressText=""/>
@@ -40,7 +40,7 @@
   <ProjectSessionItem path="03oos_openwsn;03oos_openwsn;OpenWSN;openstack;cross-layers"/>
  </Project>
  <Register1>
-  <RegisterWindow visibleNodes="CPU - Current Context/r0;CPU - Current Context/r1;CPU - Current Context/r2;CPU - Current Context/r3;CPU - Current Context/r4;CPU - Current Context/r5;CPU - Current Context/r6;CPU - Current Context/r7;CPU - Current Context/r8;CPU - Current Context/r9;CPU - Current Context/r10;CPU - Current Context/r11;CPU - Current Context/r12;CPU - Current Context/sp(r13);CPU - Current Context/lr(r14);CPU - Current Context/pc(r15);CPU - Current Context/apsr;CPU/r0;CPU/r1;CPU/r2;CPU/r3;CPU/r4;CPU/r5;CPU/r6;CPU/r7;CPU/r8;CPU/r9;CPU/r10;CPU/r11;CPU/r12;CPU/sp(r13);CPU/lr(r14);CPU/pc(r15);CPU/xpsr;CPU/msp;CPU/psp;CPU/cfbp;CPU/internal" binaryNodes="" asciiNodes="" openNodes="CPU - Current Context" name="03oos_openwsn" decimalNodes="" octalNodes="" unsignedNodes=""/>
+  <RegisterWindow visibleNodes="CPU - Current Context/r0;CPU - Current Context/r1;CPU - Current Context/r2;CPU - Current Context/r3;CPU - Current Context/r4;CPU - Current Context/r5;CPU - Current Context/r6;CPU - Current Context/r7;CPU - Current Context/r8;CPU - Current Context/r9;CPU - Current Context/r10;CPU - Current Context/r11;CPU - Current Context/r12;CPU - Current Context/sp(r13);CPU - Current Context/lr(r14);CPU - Current Context/pc(r15);CPU - Current Context/apsr;CPU/r0;CPU/r1;CPU/r2;CPU/r3;CPU/r4;CPU/r5;CPU/r6;CPU/r7;CPU/r8;CPU/r9;CPU/r10;CPU/r11;CPU/r12;CPU/sp(r13);CPU/lr(r14);CPU/pc(r15);CPU/xpsr;CPU/msp;CPU/psp;CPU/cfbp;CPU/internal" binaryNodes="" asciiNodes="" openNodes="" name="03oos_openwsn" decimalNodes="" octalNodes="" unsignedNodes=""/>
  </Register1>
  <Register2>
   <RegisterWindow visibleNodes="CPU - Current Context/r0;CPU - Current Context/r1;CPU - Current Context/r2;CPU - Current Context/r3;CPU - Current Context/r4;CPU - Current Context/r5;CPU - Current Context/r6;CPU - Current Context/r7;CPU - Current Context/r8;CPU - Current Context/r9;CPU - Current Context/r10;CPU - Current Context/r11;CPU - Current Context/r12;CPU - Current Context/sp(r13);CPU - Current Context/lr(r14);CPU - Current Context/pc(r15);CPU - Current Context/apsr;CPU/r0;CPU/r1;CPU/r2;CPU/r3;CPU/r4;CPU/r5;CPU/r6;CPU/r7;CPU/r8;CPU/r9;CPU/r10;CPU/r11;CPU/r12;CPU/sp(r13);CPU/lr(r14);CPU/pc(r15);CPU/xpsr;CPU/msp;CPU/psp;CPU/cfbp;CPU/internal" binaryNodes="" asciiNodes="" openNodes="CPU - Current Context" name="03oos_openwsn" decimalNodes="" octalNodes="" unsignedNodes=""/>
@@ -59,15 +59,13 @@
  </TraceWindow>
  <Watch1>
   <Watches active="1" update="Twice a Second">
-   <Watchpoint expression="length_packet" name="length_packet" radix="11" linenumber="39" filename="../../../openapps/csensors/csensors.c"/>
-   <Watchpoint expression="id_check_task_cb" name="id_check_task_cb" radix="11" linenumber="40" filename="../../../openapps/csensors/csensors.c"/>
-   <Watchpoint expression="id_check_recieve" name="id_check_recieve" radix="11" linenumber="41" filename="../../../openapps/csensors/csensors.c"/>
-   <Watchpoint expression="value_real" name="value_real" radix="11" linenumber="43" filename="../../../openapps/csensors/csensors.c"/>
-   <Watchpoint expression="value_conv_real" name="value_conv_real" radix="11" linenumber="46" filename="../../../openapps/csensors/csensors.c"/>
-   <Watchpoint expression="temp_cpu_raw" name="temp_cpu_raw" radix="11" linenumber="21" filename="../../../bsp/boards/nrf52840/adc_sensor.c"/>
-   <Watchpoint expression="temp_cpu" name="temp_cpu" radix="11" linenumber="22" filename="../../../bsp/boards/nrf52840/adc_sensor.c"/>
-   <Watchpoint expression="val1" name="val1" radix="10" linenumber="470" filename="../../../openapps/csensors/csensors.c"/>
-   <Watchpoint expression="val2" name="val2" radix="10" linenumber="46" filename="../../../openapps/csensors/csensors.c"/>
+   <Watchpoint expression="raw_value_lw" name="raw_value_lw" radix="10" linenumber="491" filename="../../../openapps/csensors/csensors.c"/>
+   <Watchpoint expression="value_lw" name="value_lw" radix="10" linenumber="496" filename="../../../openapps/csensors/csensors.c"/>
+   <Watchpoint expression="val_arr_lw" name="val_arr_lw" radix="16" linenumber="504" filename="../../../openapps/csensors/csensors.c"/>
+   <Watchpoint expression="value_c1b_lw" name="value_c1b_lw" radix="10" linenumber="507" filename="../../../openapps/csensors/csensors.c"/>
+   <Watchpoint expression="length_packet" name="length_packet" radix="10" linenumber="514" filename="../../../openapps/csensors/csensors.c"/>
+   <Watchpoint expression="pointer_payload_lw" name="pointer_payload_lw" radix="10" linenumber="518" filename="../../../openapps/csensors/csensors.c"/>
+   <Watchpoint expression="openqueue_vars" name="openqueue_vars" radix="-1" linenumber="0" filename=""/>
   </Watches>
  </Watch1>
  <Watch2>
@@ -80,12 +78,14 @@
   <Watches active="0" update="Never"/>
  </Watch4>
  <Files>
-  <SessionOpenFile windowGroup="DockEditLeft" x="32" y="462" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../openapps/csensors/csensors.c" selected="0" top="446" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="3" y="82" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../openapps/cinfo/cinfo.c" selected="1" top="81" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="21" y="149" useTextEdit="1" openedFrom="C:/Users/i00110885/Desktop/nrftest/openwsn-fw/openapps/cinfo/cinfo.c" useBinaryEdit="0" left="0" path="../../../bsp/boards/nrf52840/board_info.h" selected="0" top="136" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="46" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../bsp/boards/nrf52840/board.c" selected="0" top="32" codecName=""/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="335" useTextEdit="1" openedFrom="C:/Users/i00110885/Desktop/nrftest/openwsn-fw/openapps/csensors/csensors.c" useBinaryEdit="0" left="0" path="../../../inc/opendefs.h" selected="0" top="321" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="396" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../bsp/boards/nrf52840/sdk/components/toolchain/cmsis/include/cmsis_gcc.h" selected="0" top="382" codecName=""/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="464" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../openapps/csensors/csensors.c" selected="1" top="445" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="47" y="98" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../openapps/cinfo/cinfo.c" selected="0" top="114" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="46" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../bsp/boards/nrf52840/board.c" selected="0" top="69" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="17" y="335" useTextEdit="1" openedFrom="C:/Users/i00110885/Desktop/nrftest/openwsn-fw/openapps/csensors/csensors.c" useBinaryEdit="0" left="0" path="../../../inc/opendefs.h" selected="0" top="77" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="396" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../bsp/boards/nrf52840/sdk/components/toolchain/cmsis/include/cmsis_gcc.h" selected="0" top="382" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="21" y="149" useTextEdit="1" openedFrom="C:/Users/i00110885/Desktop/nrftest/openwsn-fw/openapps/cinfo/cinfo.c" useBinaryEdit="0" left="0" path="../../../bsp/boards/nrf52840/board_info.h" selected="0" top="126" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="0" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../common/03oos_openwsn/03oos_openwsn.c" selected="0" top="0" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditRight" x="19" y="14" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="globalvalcheck.h" selected="0" top="0" codecName="Default"/>
  </Files>
  <ARMCrossStudioWindow activeProject="03oos_openwsn" fileDialogDefaultFilter="*.c;*.cpp;*.cxx;*.cc;*.h;*.hpp;*.hxx" autoConnectTarget="J-Link" buildConfiguration="Debug" sessionSettings="" debugSearchFileMap="" fileDialogInitialDirectory="C:/Users/i00110885/Desktop/nrftest/openwsn-fw/drivers/common" debugSearchPath="" autoConnectCapabilities="3711"/>
 </session>
