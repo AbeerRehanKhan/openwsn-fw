@@ -42,6 +42,8 @@ uint8_t id_check_recieve;
 uint8_t id_check;
 float value_real;
 int32_t value_conv_real;
+char val1[10];
+char val2[50];
 
 
 
@@ -453,25 +455,70 @@ void csensors_fillpayload(OpenQueueEntry_t *msg,
 
     float value;
     int32_t raw_value;
-    int32_t value_converted;
+    //int32_t value_converted;
+    
 
+    // Get the sensor value in ADC format
     raw_value = csensors_vars.csensors_resource[id].opensensors_resource->callbackRead();
+    
+    // Convert the ADC to degree celcius
     value = csensors_vars.csensors_resource[id].opensensors_resource->callbackConvert(raw_value);
-    value_converted = value * 100;
+    
+    
+    //value_c1b[sizeof((uint8_t )((char)value))];
+    // Converting the data type to char and then uint8_t pointer
+    uint8_t val_arr[15];
+    sprintf(val_arr, "%2f2", value);
+
+    uint8_t * value_c1b =(uint8_t *)(val_arr);
 
     // Check value and multiplied value in watch
-     value_real = value;
-      value_conv_real = value_converted;
+      value_real = value;
+      char string_value[sizeof((char)value)]; 
 
-    if (packetfunctions_reserveHeader(&msg, 2) == E_FAIL){
+    if (packetfunctions_reserveHeader(&msg, strlen(value_c1b)) == E_FAIL){
         openqueue_freePacketBuffer(msg);
         return;
     }
     length_packet = msg->length;
+    
+    
+    memcpy(&msg->payload[0], &value_c1b, strlen(value_c1b));
+    memcpy(&val2, &value_c1b, sizeof(value_c1b));
+
+/*    float value;
+    int32_t raw_value;
+    //int32_t value_converted;
+    uint8_t* value_c1b;
+
+    raw_value = csensors_vars.csensors_resource[id].opensensors_resource->callbackRead();
+    value = csensors_vars.csensors_resource[id].opensensors_resource->callbackConvert(raw_value);
+    value_c1b = (uint8_t)&value;
+
+    // Check value and multiplied value in watch
+     value_real = value;
+      char string_value[sizeof(value)]; 
+      sprintf(string_value, "%2f2", value_c1b);
+      sprintf(val1, "%2f2", string_value);
+
+    if (packetfunctions_reserveHeader(&msg, strlen(string_value)) == E_FAIL){
+        openqueue_freePacketBuffer(msg);
+        return;
+    }
+    length_packet = msg->length;
+    
+    
+    memcpy(&msg->payload[0], (uint8_t)atoi(&string_value), strlen(string_value));
+     memcpy(&val2, (uint8_t)atoi(&string_value), strlen(string_value));
+    */
+    //sprintf((uint8_t)atoi(&val2), "%2f2", &msg->payload[0]);
 
     // add value
-    msg->payload[0] = (value_converted/100);
-    msg->payload[1] = value_converted & 0b11111111;
+    //msg->payload[0] = (value_converted/100);10
+    //msg->payload[1] = value_converted & 0b1111111;
+    //memcpy(msg->payload,string_value,sizeof(string_value));(uint8_t)atoi(bufferSlidePressure)
+    //memcpy(&msg->payload[0], &string_value, strlen(string_value));
+    //sprintf(msg->payload,"%2f2",string_value);
 
 
 }

@@ -23,8 +23,10 @@
  <Project>
   <ProjectSessionItem path="03oos_openwsn"/>
   <ProjectSessionItem path="03oos_openwsn;03oos_openwsn"/>
+  <ProjectSessionItem path="03oos_openwsn;03oos_openwsn;Application"/>
   <ProjectSessionItem path="03oos_openwsn;03oos_openwsn;OpenWSN"/>
   <ProjectSessionItem path="03oos_openwsn;03oos_openwsn;OpenWSN;bsp"/>
+  <ProjectSessionItem path="03oos_openwsn;03oos_openwsn;OpenWSN;drivers"/>
   <ProjectSessionItem path="03oos_openwsn;03oos_openwsn;OpenWSN;missfiles"/>
   <ProjectSessionItem path="03oos_openwsn;03oos_openwsn;OpenWSN;missfiles;drivers"/>
   <ProjectSessionItem path="03oos_openwsn;03oos_openwsn;OpenWSN;missfiles;drivers;openapps"/>
@@ -61,9 +63,11 @@
    <Watchpoint expression="id_check_task_cb" name="id_check_task_cb" radix="11" linenumber="40" filename="../../../openapps/csensors/csensors.c"/>
    <Watchpoint expression="id_check_recieve" name="id_check_recieve" radix="11" linenumber="41" filename="../../../openapps/csensors/csensors.c"/>
    <Watchpoint expression="value_real" name="value_real" radix="11" linenumber="43" filename="../../../openapps/csensors/csensors.c"/>
-   <Watchpoint expression="value_conv_real" name="value_conv_real" radix="11" linenumber="44" filename="../../../openapps/csensors/csensors.c"/>
+   <Watchpoint expression="value_conv_real" name="value_conv_real" radix="11" linenumber="46" filename="../../../openapps/csensors/csensors.c"/>
    <Watchpoint expression="temp_cpu_raw" name="temp_cpu_raw" radix="11" linenumber="21" filename="../../../bsp/boards/nrf52840/adc_sensor.c"/>
    <Watchpoint expression="temp_cpu" name="temp_cpu" radix="11" linenumber="22" filename="../../../bsp/boards/nrf52840/adc_sensor.c"/>
+   <Watchpoint expression="val1" name="val1" radix="10" linenumber="470" filename="../../../openapps/csensors/csensors.c"/>
+   <Watchpoint expression="val2" name="val2" radix="10" linenumber="46" filename="../../../openapps/csensors/csensors.c"/>
   </Watches>
  </Watch1>
  <Watch2>
@@ -76,11 +80,12 @@
   <Watches active="0" update="Never"/>
  </Watch4>
  <Files>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="473" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../openapps/csensors/csensors.c" selected="0" top="450" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="9" y="21" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../bsp/boards/nrf52840/adc_sensor.c" selected="0" top="60" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="46" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../bsp/boards/nrf52840/board.c" selected="1" top="43" codecName=""/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="26" useTextEdit="1" openedFrom="C:/Users/i00110885/Desktop/nrftest/openwsn-fw/openapps/csensors/csensors.c" useBinaryEdit="0" left="0" path="../../../drivers/common/opensensors.h" selected="0" top="3" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="25" useTextEdit="1" openedFrom="C:/Users/i00110885/Desktop/nrftest/openwsn-fw/openapps/csensors/csensors.c" useBinaryEdit="0" left="0" path="../../../drivers/common/opentimers.h" selected="0" top="0" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="32" y="462" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../openapps/csensors/csensors.c" selected="0" top="446" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="3" y="82" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../openapps/cinfo/cinfo.c" selected="1" top="81" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="21" y="149" useTextEdit="1" openedFrom="C:/Users/i00110885/Desktop/nrftest/openwsn-fw/openapps/cinfo/cinfo.c" useBinaryEdit="0" left="0" path="../../../bsp/boards/nrf52840/board_info.h" selected="0" top="136" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="46" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../bsp/boards/nrf52840/board.c" selected="0" top="32" codecName=""/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="335" useTextEdit="1" openedFrom="C:/Users/i00110885/Desktop/nrftest/openwsn-fw/openapps/csensors/csensors.c" useBinaryEdit="0" left="0" path="../../../inc/opendefs.h" selected="0" top="321" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="396" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../bsp/boards/nrf52840/sdk/components/toolchain/cmsis/include/cmsis_gcc.h" selected="0" top="382" codecName=""/>
  </Files>
  <ARMCrossStudioWindow activeProject="03oos_openwsn" fileDialogDefaultFilter="*.c;*.cpp;*.cxx;*.cc;*.h;*.hpp;*.hxx" autoConnectTarget="J-Link" buildConfiguration="Debug" sessionSettings="" debugSearchFileMap="" fileDialogInitialDirectory="C:/Users/i00110885/Desktop/nrftest/openwsn-fw/drivers/common" debugSearchPath="" autoConnectCapabilities="3711"/>
 </session>
