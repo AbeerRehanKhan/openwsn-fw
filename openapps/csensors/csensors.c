@@ -472,14 +472,14 @@ void csensors_fillpayload(OpenQueueEntry_t *msg,
 
     help = strlen(val_arr);
     //Detrmining the payload length and free vufffer size according to that 
-    if (packetfunctions_reserveHeader(&msg, strlen(val_arr)) == E_FAIL){
+    if (packetfunctions_reserveHeader(&msg, sizeof(val_arr)) == E_FAIL){
         openqueue_freePacketBuffer(msg);
         return;
     }
     length_packet = msg->length;
     
-    //sprintf(msg->payload, "%.2f", value);
-    memcpy(&msg->payload,&val_arr, strlen(val_arr));
+    sprintf(msg->payload, "%.2f", value);
+    //memcpy(&msg->payload,&val_arr, strlen(val_arr));
     //sprintf(pointer_payload_lw, "%f", value);
 
 /*    float value;
