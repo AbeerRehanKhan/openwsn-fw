@@ -139,7 +139,19 @@
  *
  */
 #ifndef OPENWSN_UECHO_C
-#define OPENWSN_UECHO_C (1)
+#define OPENWSN_UECHO_C (0)
+#endif
+
+/**
+ * \def OPENWSN_PORT_SOCK_C
+ *
+ * An echo application (server side) that sits directly on top of UDP.
+ *
+ * Requires: OPENWSN_UDP_C/OPENWSN_PORT_UDP_C
+ *
+ */
+#ifndef OPENWSN_PORT_SOCK_C
+#define OPENWSN_PORT_SOCK_C (1)
 #endif
 
 /**
@@ -225,6 +237,16 @@
  */
 #ifndef OPENWSN_UDP_C
 #define OPENWSN_UDP_C (1)
+#endif
+
+/**
+ * \def OPENWSN_PORT_SOCK_C
+ *
+ * Implementation of the port socket protocol.
+ *
+ */
+#ifndef OPENWSN_PORT_UDP_C
+#define OPENWSN_PORT_UDP_C (1)
 #endif
 
 /**

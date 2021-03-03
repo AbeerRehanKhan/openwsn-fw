@@ -115,7 +115,7 @@
 #error "CJOIN requires the CoAP protocol."
 #endif
 
-#if OPENWSN_COAP_C && !(OPENWSN_UDP_C || OPENWSN_TCP_C)
+#if OPENWSN_COAP_C && !(OPENWSN_UDP_C || OPENWSN_TCP_C || OPENWSN_PORT_UDP_C )
 #error "CoAP requires a transport layer, i.e. UDP or TCP."
 #endif
 

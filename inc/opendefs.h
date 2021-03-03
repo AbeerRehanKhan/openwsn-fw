@@ -100,6 +100,7 @@ enum {
     //UDP
     WKP_UDP_COAP = 5683,
     WKP_UDP_ECHO = 7,
+    WKP_UDP_PORT = 3775,
     WKP_UDP_EXPIRATION = 5,
     WKP_UDP_MONITOR = 3,
     WKP_UDP_INJECT = 61617,// 0xf0b1

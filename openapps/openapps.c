@@ -89,6 +89,11 @@ void openapps_init(void) {
   uecho_init();
 #endif
 
+#if OPENWSN_PORT_UDP_C
+  port_sock_init();
+#endif
+
+
 #if OPENWSN_UINJECT_C
   uinject_init();
 #endif

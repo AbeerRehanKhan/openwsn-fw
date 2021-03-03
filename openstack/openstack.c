@@ -97,6 +97,10 @@ void openstack_init(void) {
     sock_udp_init();
 #endif
 
+#if OPENWSN_PORT_SOCK_C
+    sock_udp_init();
+#endif
+
     //===== application-layer
     openweb_init();
 
